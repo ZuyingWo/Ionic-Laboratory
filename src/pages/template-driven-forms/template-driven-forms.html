@@ -17,7 +17,7 @@
     <ion-list-header>
       社員登録
     </ion-list-header>
-    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <form (ngSubmit)="onSubmit(); employeeForm.reset()" #employeeForm="ngForm">
       <ion-item>
         <ion-label stacked>名前</ion-label>
         <ion-input type="text" id="name" name="name" required minlength="4" [(ngModel)]="model.name" #name="ngModel"></ion-input>
@@ -55,4 +55,7 @@
       </div>
     </form>
   </ion-list>
+  <div class="loading-spinner-area" *ngIf="showLoading$ | async">
+    <ion-spinner name="dots"></ion-spinner>
+  </div>
 </ion-content>

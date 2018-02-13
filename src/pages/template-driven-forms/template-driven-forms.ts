@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EmployeeModel } from './models/employee.model';
+import { Store } from '@ngrx/store';
+import { State } from '../../app/app.reducer';
+import { SendForm } from './store/page/template-driven-forms-page.actions';
+import { Observable } from 'rxjs/Observable';
+import { getShowLoading } from './store';
 
 @IonicPage()
 @Component({
@@ -17,7 +22,10 @@ export class TemplateDrivenFormsPage {
 
   public submitted = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  showLoading$: Observable<boolean>;
+
+  constructor(private store: Store<State>) {
+    this.showLoading$ = this.store.select(getShowLoading);
   }
 
   ionViewDidLoad() {
@@ -26,6 +34,7 @@ export class TemplateDrivenFormsPage {
 
   onSubmit() {
     this.submitted = true;
+    this.store.dispatch(new SendForm());
   }
 
 }

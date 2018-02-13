@@ -7,7 +7,7 @@ import { TemplateDrivenFormsPage } from './template-driven-forms';
     TemplateDrivenFormsPage,
   ],
   imports: [
-    IonicPageModule.forChild(TemplateDrivenFormsPage),
+    IonicPageModule.forChild(TemplateDrivenFormsPage)
   ],
 })
 export class TemplateDrivenFormsPageModule {}
