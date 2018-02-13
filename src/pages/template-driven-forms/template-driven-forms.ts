@@ -13,7 +13,7 @@ export class TemplateDrivenFormsPage {
     'Desiner', 'Develop', 'Marketing'
   ];
 
-  public model: EmployeeModel = new EmployeeModel(12, 'Ionic', '060-1234-5678', this.departments[1]);
+  public model: EmployeeModel = new EmployeeModel(12, 'Ionic', '090-1234-5678', this.departments[1]);
 
   public submitted = false;
 
@@ -26,7 +26,6 @@ export class TemplateDrivenFormsPage {
 
   onSubmit() {
     this.submitted = true;
-    console.log('submitted');
   }
 
 }

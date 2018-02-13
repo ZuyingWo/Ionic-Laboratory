@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      mode: 'ios'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
