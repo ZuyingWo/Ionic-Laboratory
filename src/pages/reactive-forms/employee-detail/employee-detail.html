@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>employee-detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>社員詳細</h2>
+  <form [formGroup]="employeeForm" novalidate>
+    <ion-card>
+      <ion-item>
+        <ion-label floating>名前</ion-label>
+        <ion-input type="text" name="name" formControlName="name"></ion-input>
+      </ion-item>
+    </ion-card>
+  </form>
+</ion-content>
