@@ -15,6 +15,6 @@ export class TemplateDrivenFormsPageEffects {
     constructor(private actions$: Actions, private store: Store<State>) {}
 
     sendForm$ = this.actions$.ofType(TemplateDrivenFormsPageActionTypes.SendForm).subscribe(() => {
-        Observable.interval(1000).take(1).subscribe(() => this.store.dispatch(new SendFormSuccess()));
+        Observable.interval(3000).take(1).subscribe(() => this.store.dispatch(new SendFormSuccess()));
     })
 }
