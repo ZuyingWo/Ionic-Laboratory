@@ -24,7 +24,7 @@ export class TemplateDrivenFormsPage {
 
   showLoading$: Observable<boolean>;
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<State>, public navCtrl: NavController) {
     this.showLoading$ = this.store.select(getShowLoading);
   }
 
@@ -35,6 +35,10 @@ export class TemplateDrivenFormsPage {
   onSubmit() {
     this.submitted = true;
     this.store.dispatch(new SendForm());
+  }
+
+  onHome() {
+    this.navCtrl.setRoot('HomePage');
   }
 
 }
