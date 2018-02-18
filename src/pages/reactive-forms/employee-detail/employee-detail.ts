@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormControl } from '@angular/forms';
-import { FormGroup } from '@angular/forms/src/model';
-import { FormBuilder } from '@angular/forms/src/form_builder';
-import { Validators } from '@angular/forms/src/validators';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the EmployeeDetailPage page.
