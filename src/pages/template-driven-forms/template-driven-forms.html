@@ -11,7 +11,7 @@
   </ion-navbar>
 
   <ion-toolbar>
-    <ion-title>
+    <ion-title id="il-template-driven-forms-page-title">
       Template Driven Forms
     </ion-title>
   </ion-toolbar>
@@ -22,31 +22,31 @@
     <ion-row justify-content-center>
       <ion-col col-sm-12 col-md-10 col-lg-8 col-xl-6>
         <ion-list>
-          <ion-list-header>
+          <ion-list-header id="il-form-name">
             社員登録
           </ion-list-header>
           <form (ngSubmit)="onSubmit(); employeeForm.reset()" #employeeForm="ngForm">
             <ion-item>
-              <ion-label stacked>名前</ion-label>
-              <ion-input type="text" id="name" name="name" required minlength="4" [(ngModel)]="model.name" #name="ngModel"></ion-input>
+              <ion-label id="il-name-label" stacked>名前</ion-label>
+              <ion-input id="il-name-input" type="text" name="name" required minlength="4" [(ngModel)]="model.name" #name="ngModel"></ion-input>
             </ion-item>
       
             <ion-item>
-              <ion-label stacked>部署</ion-label>
-              <ion-select id="department" name="department" required [(ngModel)]="model.department" #department="ngModel">
+              <ion-label id="il-department-label" stacked>部署</ion-label>
+              <ion-select id="il-department-select" name="department" required [(ngModel)]="model.department" #department="ngModel">
                 <ion-option value=""></ion-option>
                 <ion-option *ngFor="let department of departments;" [value]="department">{{department}}</ion-option>
               </ion-select>
             </ion-item>
       
             <ion-item>
-              <ion-label stacked>電話番号</ion-label>
-              <ion-input type="text" id="phone" name="phone" required [(ngModel)]="model.phone" #phone="ngModel"></ion-input>
+              <ion-label id="il-phone-label" stacked>電話番号</ion-label>
+              <ion-input id="il-phone-input" type="text" name="phone" required [(ngModel)]="model.phone" #phone="ngModel"></ion-input>
             </ion-item>
       
             <ion-item>
-              <ion-label stacked>メールアドレス</ion-label>
-              <ion-input type="text" id="email" name="email" [(ngModel)]="model.email"></ion-input>
+              <ion-label id="il-email-label" stacked>メールアドレス</ion-label>
+              <ion-input id="il-email-input" type="text" name="email" [(ngModel)]="model.email"></ion-input>
             </ion-item>
             <div class="submit-button-area">
               <div *ngIf="name.errors && (name.dirty || name.touched)">
@@ -59,7 +59,7 @@
               <div *ngIf="phone.errors && (phone.dirty || phone.touched)">
                 <span ion-text color="danger" [hidden]="!phone.errors.required">「電話番号」は必須項目です</span>
               </div>
-              <button ion-button type="submit" round outline [disabled]="!employeeForm.form.valid">Submit</button>
+              <button id="il-template-driven-forms-submit" ion-button type="submit" round outline [disabled]="!employeeForm.form.valid">Submit</button>
             </div>
           </form>
         </ion-list>
