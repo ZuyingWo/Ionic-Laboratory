@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title id="app-title">
+      Ionic Laboratory
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>
+      AMP in Ionic
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item (click)="detail('amp-in-ionic')">About AMP in Ionic</button>
+    <button ion-item (click)="detail('sample-1')">Sample Article 1</button>
+    <button ion-item (click)="detail('sample-2')">Sample Article 2</button>
+  </ion-list>
+</ion-content>
