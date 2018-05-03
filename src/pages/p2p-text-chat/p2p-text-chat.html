@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      P2P Video Chat
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row justify-content-center>
+    <ion-col col-sm-12 col-md-10 col-lg-8 col-xl-6>
+      <h3>Your PeerID is <span ion-text color="danger">{{ talk.srcId }}</span></h3>
+      <form (ngSubmit)="onSend()" #talkForm="ngForm">
+        <ion-item>
+            <ion-label>Connect to</ion-label>
+            <ion-input name="destPeerId" type="number" required [(ngModel)]="talk.destId" #destPeerId="ngModel"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Message</ion-label>
+            <ion-input name="message" type="text" required [(ngModel)]="talk.message" #message="ngModel"></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col center text-center>
+            <button ion-button type="submit" [disabled]="talkForm.form.invalid">Send</button>
+          </ion-col>
+          <ion-col center text-center>
+            <button ion-button>Reset</button>
+          </ion-col>
+        </ion-row>
+      </form>
+
+      <ion-card *ngIf="talkHistory.length > 0">
+        <ion-card-content>
+          <ion-card-title>Talk</ion-card-title>
+            <ion-list>
+              <ion-item *ngFor="let talk of talkHistory;">
+                <h3>[{{talk.srcId}} -> {{talk.destId}}]</h3>
+                <p>{{ talk.message }}</p>
+              </ion-item>
+            </ion-list>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
