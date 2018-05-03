@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      P2P Video Chat
+      P2P Text Chat
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,26 +9,35 @@
 <ion-content padding>
   <ion-row justify-content-center>
     <ion-col col-sm-12 col-md-10 col-lg-8 col-xl-6>
+
+
+      <!-- 自分のPeerID -->
       <h3>Your PeerID is <span ion-text color="danger">{{ talk.srcId }}</span></h3>
+      
+      <!-- 投稿フォーム -->
       <form (ngSubmit)="onSend()" #talkForm="ngForm">
+
+        <!-- 接続先PeerID入力 -->
         <ion-item>
             <ion-label>Connect to</ion-label>
             <ion-input name="destPeerId" type="number" required [(ngModel)]="talk.destId" #destPeerId="ngModel"></ion-input>
         </ion-item>
+
+        <!-- 送信メッセージ入力 -->
         <ion-item>
             <ion-label>Message</ion-label>
             <ion-input name="message" type="text" required [(ngModel)]="talk.message" #message="ngModel"></ion-input>
         </ion-item>
+
+        <!-- 送信ボタン Required設定されているInputがある場合は非活性 -->
         <ion-row>
           <ion-col center text-center>
             <button ion-button type="submit" [disabled]="talkForm.form.invalid">Send</button>
           </ion-col>
-          <ion-col center text-center>
-            <button ion-button>Reset</button>
-          </ion-col>
         </ion-row>
       </form>
 
+      <!-- トーク履歴表示 履歴が0の場合は表示しない -->
       <ion-card *ngIf="talkHistory.length > 0">
         <ion-card-content>
           <ion-card-title>Talk</ion-card-title>
@@ -44,3 +53,5 @@
     </ion-col>
   </ion-row>
 </ion-content>
+
+
