@@ -1,5 +1,5 @@
 import * as fromTemplateDrivenFormsPage from './page/template-driven-forms-page.reducer';
-import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromRoot from '../../../app/app.reducer';
 
 export interface TemplateDrivenFormsState {

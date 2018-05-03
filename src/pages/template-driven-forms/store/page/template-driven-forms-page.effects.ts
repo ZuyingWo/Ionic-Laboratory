@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { Actions } from "@ngrx/effects";
 import { TemplateDrivenFormsPageActionTypes, SendFormSuccess } from "./template-driven-forms-page.actions";
 import { Observable } from 'rxjs/Observable';
-import { tap, map } from 'rxjs/operators';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/observable/of';

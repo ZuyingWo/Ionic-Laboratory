@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { EmployeeModel } from './models/employee.model';
 import { Store } from '@ngrx/store';
 import { State } from '../../app/app.reducer';
