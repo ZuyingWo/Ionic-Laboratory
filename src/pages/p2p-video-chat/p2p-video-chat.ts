@@ -22,18 +22,17 @@ export class P2pVideoChatPage {
   @ViewChild('video') video: any;
   @ViewChild('selfVideo') selfVideo: any;
 
-  talk: Talk = new Talk('', '', { video: true, audio: false });
+  talk: Talk = new Talk('', '', { video: true, audio: true });
 
   private peer: PeerJs.Peer;
 
-  constructor(public navCtrl: NavController) {
-
-  }
+  constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
     this.start();
   }
 
+  // 初期セットアップ
   public start() {
     const peerId = String(Math.floor(Math.random() * 900) + 100);
     const options = {
@@ -48,15 +47,11 @@ export class P2pVideoChatPage {
     this.peer.on('call', (call) => { this.receive(call); });
   }
 
-  private receive(call: PeerJs.MediaConnection) {
-    navigator.getUserMedia =  ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia );
-    navigator.getUserMedia(this.talk.device, mediaStream => {
-      this.showVideoSelf(mediaStream);
-      call.answer(mediaStream);
-      call.on('stream', stream => this.showVideo(stream));
-    }, err => console.error(err));
+  onSend() {
+    this.call();
   }
 
+  // 他の端末へ接続しに行く
   public call() {
     navigator.getUserMedia =  ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia );
     navigator.getUserMedia(this.talk.device, mediaStream => {
@@ -66,19 +61,26 @@ export class P2pVideoChatPage {
     }, err => console.error(err));
   }
 
+  // 他の端末から接続をけた時の処理
+  private receive(call: PeerJs.MediaConnection) {
+    navigator.getUserMedia =  ( navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia );
+    navigator.getUserMedia(this.talk.device, mediaStream => {
+      this.showVideoSelf(mediaStream);
+      call.answer(mediaStream);
+      call.on('stream', stream => this.showVideo(stream));
+    }, err => console.error(err));
+  }
+
+  // 相手のビデオを表示する
   private showVideo(stream) {
     let video = this.video.nativeElement;
     video.src = URL.createObjectURL(stream);
   }
 
+  // 自分のビデオを表示する
   private showVideoSelf(stream) {
-    console.log('called')
     let video = this.selfVideo.nativeElement;
     video.src = URL.createObjectURL(stream);
-  }
-
-  onSend() {
-    this.call();
   }
 
 }
