@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar color="primary">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title id="app-title">
       Ionic Laboratory
     </ion-title>
@@ -19,5 +22,6 @@
       <button id="il-link-to-amp-in-ionic" ion-item (click)="onLinkButton('AmpInIonicPage')">Amp In Ionic</button>
       <button id="il-link-to-p2p-text-chat" ion-item (click)="onLinkButton('P2pTextChatPage')">P2P Text Chat</button>
       <button id="il-link-to-p2p-video-chat" ion-item (click)="onLinkButton('P2pVideoChatPage')">P2P Video Chat</button>
+      <button id="il-link-to-tabs" ion-item (click)="onLinkButton('TabsPage')">Tabs</button>
   </ion-list>
 </ion-content>
